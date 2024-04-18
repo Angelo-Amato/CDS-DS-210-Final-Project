@@ -1,8 +1,11 @@
 # CDS-DS-210-Final-Project
+>Angelo Amato
+>
+>1 May 2024
+>
+>Professor Kontothanassis
 
-Angelo Amato
-
-## What is Wikispeedia?
+## About
 
 ## Code Description
 
