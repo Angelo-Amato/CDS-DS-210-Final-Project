@@ -1,9 +1,10 @@
 use crate::graph_read::*;
 use std::collections::VecDeque;
+use std::iter::Iterator;
 
 // takes a graph and a starting node
 // returns the average distance from the starting node to all other nodes
-pub fn get_average_distance(start: Vertex, graph: &Graph) -> f64 {
+pub fn get_average_distance(start: Vertex, graph: &Graph) ->  f64{
     let mut distance: Vec<Option<u32>> = vec![None;graph.n];
     distance[start] = Some(0); // <= we know this distance
     let mut queue: VecDeque<Vertex> = VecDeque::new();
@@ -17,5 +18,6 @@ pub fn get_average_distance(start: Vertex, graph: &Graph) -> f64 {
         }
     }
     // get the average distance to all points
-    distance.iter().filter_map(|x| *x).sum::<u32>() as f64 / graph.n as f64
+    distance.iter().filter_map(|x| *x).sum::<u32>() as f64 / (distance.len() - 1) as f64
 }
+//distance.iter().filter_map(|x| *x).collect::<Vec<u32>>().len() == graph.n
