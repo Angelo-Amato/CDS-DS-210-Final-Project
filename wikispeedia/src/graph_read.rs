@@ -3,7 +3,7 @@ use std::fs::File;
 use std::io::BufRead;
 
 //types and struct definitions to make the graph from the txt file
-type Vertex = usize;
+pub type Vertex = usize;
 type ListOfEdges = Vec<(Vertex,Vertex)>;
 type AdjacencyLists = Vec<Vec<Vertex>>;
 
@@ -37,6 +37,7 @@ impl Graph {
 }
 
 // creates a key from a tsv file that maps article names to numbers 0 to n-1 where n is the number of pages
+// assumes the file is in the format of a tsv file with the first column being the article name
 pub fn create_key(path:&str) -> HashMap<String, usize>{
     let mut key = HashMap::new();
 
@@ -53,6 +54,7 @@ pub fn create_key(path:&str) -> HashMap<String, usize>{
     key 
 }
 // creates a reverse key where the number is the key and the article name is the value
+// assumes there is no duplicate values
 pub fn reverse_key(key: &HashMap<String, usize>) -> HashMap<usize, String>{
     let mut reverse_key = HashMap::new();
     for (k,v) in key.iter(){
@@ -62,6 +64,7 @@ pub fn reverse_key(key: &HashMap<String, usize>) -> HashMap<usize, String>{
 }
 
 // creates a graph from a tsv file with the key mapping article names to numbers
+// assumes the file is in the format of a tsv file with the first column being the start node and the second column being the end node
 pub fn numbered_nodes_graph(path:&str, key: HashMap<String, usize>) -> Graph{
     // creates an edge list for the outedges of the graph
     let mut edge_list: Vec<(Vertex, Vertex)> = Vec::new();
