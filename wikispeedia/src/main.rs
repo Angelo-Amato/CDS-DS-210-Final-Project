@@ -20,6 +20,9 @@ fn main() {
     // goes through each node and calculate the average distance from that node to all other nodes
     let max_length = 100;
     let mut graph_ave = Vec::<f64>::new();
+    //prints headers for the output
+    println!("Article Name{}Average Distance to Other Articles", "-".repeat(max_length - "Article Name".chars().count()));
+    println!("{}",":".repeat(max_length + 34));
     for x in 0..wiki_graph.n {
         // calculate the average distance from  node x  to all other nodes
         let ave_dist = get_average_distance(x as Vertex, &wiki_graph);
@@ -28,12 +31,13 @@ fn main() {
         graph_ave.push(ave_dist);
 
         // formats the printing of the article name and the average distance to be more readable
+
         let page_name = reverse.get(&x).unwrap();
         let decoded_name = percent_decode_str(page_name)
-            .decode_utf8()
-            .unwrap()
-            .to_string()
-            .replace("_", " ");
+            .decode_utf8()//adds special characters
+            .unwrap()//unwraps the result
+            .to_string()//converts to string
+            .replace("_", " ");// replaces underscores with spaces 
         let dashes = "-".repeat(max_length - decoded_name.chars().count());
         println!("{}{}{}", decoded_name, dashes, ave_dist)
     }
