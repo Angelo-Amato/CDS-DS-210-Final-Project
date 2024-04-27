@@ -50,3 +50,56 @@ fn main() {
     let max_ave = graph_ave.iter().fold(0.0, |a: f64, &b| a.max(b));
     println!("The maximum distance from any given node to any other given node is {}", max_ave);
 }
+
+//tests
+#[cfg(test)]
+mod tests {
+    use crate::bfs::*;
+    use crate::graph_read::*;
+    use std::collections::HashMap;
+
+    //tests the get_average_distance function for a smaller graph
+    #[test]
+    fn test_get_average_distance_line_graph() {
+        let mut edges = Vec::new();
+        edges.push((0, 1));
+        edges.push((1, 2));
+        edges.push((2, 3));
+        
+        let graph = Graph::create_directed(4, &edges);
+        assert_eq!(get_average_distance(0, &graph), 2.0);
+    }
+
+    #[test]
+    fn test_get_average_distance_complex_graph(){
+        let mut edges = Vec::new();
+        edges.push((0, 1));
+        edges.push((1, 2));
+        edges.push((2, 1));
+        edges.push((2, 3));
+        edges.push((3, 4));
+        edges.push((3, 0));
+        edges.push((0, 4));
+
+        let graph = Graph::create_directed(5, &edges);
+        assert_eq!(get_average_distance(0, &graph), 1.75);//should be 7/4
+    }
+    
+    //tests the reverse_key function
+    #[test]
+    fn test_reverse_key() {
+        let mut key = HashMap::new();
+        key.insert("a".to_string(), 0);
+        key.insert("b".to_string(), 1);
+        key.insert("c".to_string(), 2);
+        let reverse = reverse_key(&key);
+        assert_eq!(reverse.get(&0).unwrap(), "a");
+        assert_eq!(reverse.get(&1).unwrap(), "b");
+        assert_eq!(reverse.get(&2).unwrap(), "c");
+    }
+
+
+
+    
+ 
+}

@@ -28,7 +28,7 @@ impl Graph {
         }
     }
     // creates a graph from a ListOfEdges and number of nodes
-    fn create_directed(n: usize, edges: &ListOfEdges) -> Graph {
+    pub fn create_directed(n: usize, edges: &ListOfEdges) -> Graph {
         let mut g = Graph {
             n,
             outedges: vec![vec![]; n],
