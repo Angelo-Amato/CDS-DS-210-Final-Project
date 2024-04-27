@@ -7,7 +7,6 @@ pub type Vertex = usize;
 type ListOfEdges = Vec<(Vertex, Vertex)>;
 type AdjacencyLists = Vec<Vec<Vertex>>;
 
-//#[derive(Debug)]
 pub struct Graph {
     pub n: usize, // vertex labels in {0,...,n-1}
     pub outedges: AdjacencyLists,
