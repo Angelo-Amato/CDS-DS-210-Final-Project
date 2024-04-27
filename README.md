@@ -67,7 +67,6 @@ This file calls some of the helper functions listed above and calculates the ave
       * Prints the article name with the average distance to all other connected articles
   * Uses the vector and finds the average of the average distances, the maximum, and the minimum
   
-
 #### Tests
 * Test 1
   * Tests the `get_average_distance` function with a 4 node graph of nodes all in a line
@@ -86,10 +85,24 @@ This file calls some of the helper functions listed above and calculates the ave
 
 
 ## Output and Observations
-The full output of `main.rs` can be found in the [full_output.md](full_output.md) file. An abridged ver
+The full output of `main.rs` can be found in the [full_output.md](full_output.md) file. An abridged version of the output can be found below:
+
+```text
+The average distance from any given node to any other given node is 2.8090150287284805
+The maximum distance from any given node to any other given node is 4.5103193569411255
+The minimum distance from any given node to any other given node is 0
+```
+Taking this in the context of the Wikispeedia game, it takes, on average approximately 2.8 clicks to reach the target article. The maximum value was approximately 4.5, meaning that at most, an article has an average distance of 4 - 5 clicks from any other given article. This may mean that there is a significant amout of human error when playing the game, especially since some of the "record" minimum number of clicks for certain routes can be 10 or greater.
+
+One interesting ovbservation is that there are several articles with an average distance of 0 to any other given article. This is an interesting phenomenon known as ["dead-end pages"](https://en.wikipedia.org/wiki/Wikipedia:Deadend_pages#:~:text=A%20dead%2Dend%20page%20is,easy%20cross%2Dreferencing%20of%20information.), which are ones with no outgoing links. This means their default distance to all other values would default to 0, since that is the distance to itself given the way the program was written. One example of this is the Wikipedia page for Duchenne muscular dystrophy (pictured below). There are no outgoing links on this page found in the game aside from the ones the Wikispeedia game puts at the end of every article in the game. It is important to note however that the article for Duchenne muscular dystrophy is no longer a dead-end page, as links have been added to it since the Wikispeedia game was created.
+
+<img width="1425" alt="image" src="https://github.com/Angelo-2231/CDS-DS-210-Final-Project/assets/64280204/9ebb4da6-8381-46d2-a719-02b9df984e34">
+
 
 ## Sources
 1. [Stanford Network Analysis Project (SNAP) Dataset](https://snap.stanford.edu/data/wikispeedia.html)
 2. [Wikispeedia](https://dlab.epfl.ch/wikispeedia/play/)
-3. [ChatGPT Conversation 1](https://chat.openai.com/share/960d84a6-8bd0-435a-9f49-1ed69f4ae4a4)
-4. [ChatGPT Conversation 2](https://chat.openai.com/share/d093b3ba-81fd-48b3-a603-1fa45248bf54)
+3. [Wikipedia:Dead-end pages](https://en.wikipedia.org/wiki/Wikipedia:Deadend_pages#:~:text=A%20dead%2Dend%20page%20is,easy%20cross%2Dreferencing%20of%20information.)
+4. [Current Wikipedia article for Duchenne muscular dystrophy](https://en.wikipedia.org/wiki/Duchenne_muscular_dystrophy)
+5. [ChatGPT Conversation 1](https://chat.openai.com/share/960d84a6-8bd0-435a-9f49-1ed69f4ae4a4)
+6. [ChatGPT Conversation 2](https://chat.openai.com/share/d093b3ba-81fd-48b3-a603-1fa45248bf54)
