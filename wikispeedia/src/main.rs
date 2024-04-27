@@ -31,7 +31,6 @@ fn main() {
         graph_ave.push(ave_dist);
 
         // formats the printing of the article name and the average distance to be more readable
-
         let page_name = reverse.get(&x).unwrap();
         let decoded_name = percent_decode_str(page_name)
             .decode_utf8()//adds special characters
@@ -45,4 +44,9 @@ fn main() {
     // calculates the average distance from  all the nodes to all other nodes
     let total_ave = graph_ave.iter().sum::<f64>() / graph_ave.len() as f64;
     println!("The average distance from any given node to any other given node is {}", total_ave);
+
+
+    // calculates the maximum average distance  
+    let max_ave = graph_ave.iter().fold(0.0, |a: f64, &b| a.max(b));
+    println!("The maximum distance from any given node to any other given node is {}", max_ave);
 }
