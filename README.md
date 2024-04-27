@@ -26,11 +26,11 @@ This file houses helper functions that read the tsv files containing the data. T
 * `create_key`
   * a helper function to create key to turn the names of articles into numeric values for the graph
   * takes a file path as input (assumes it is a tsv file
-  * returns a HashMap, with the article names as keys and the corosponding numbers as values
+  * returns a HashMap, with the article names as keys and the corresponding numbers as values
   * values will range from 0 to n-1, with n being the number of articles
 
 * `reverse_key`
-  * a helper function that takes a HashMap key and retruns a Hashmap with the keys as values and vice versa
+  * a helper function that takes a HashMap key and returns a Hashmap with the keys as values and vice versa
   * assumes that hte values are non-repeating numbers from 0 to n-1, with n being the number of articles
   * serves as a way to get the article names from the numeric values in the graph.
  
@@ -52,7 +52,7 @@ This file contains the function that runs the breadth first search algorithm use
 This file calls some of the helper functions listed above and calculates the average distance for all starting nodes in the graph. It also prints the outputs as all of the articles with their average distance to all other nodes.
 
 * `decode_names`
-  * takes the percent encoded name of the article (which is how the data is originally formated)
+  * takes the percent encoded name of the article (which is how the data is originally formatted)
   * changes the article names to ones with special characters
   * also replaces underscores with spaces
     
