@@ -1,8 +1,15 @@
 mod bfs;
 mod graph_read;
+// changes the names of necessary functions to be more readable
+fn decode_name(percent_name: &str) -> String {
+    let decoded_name = percent_encoding::percent_decode_str(percent_name)
+        .decode_utf8()//adds special characters
+        .unwrap()//unwraps the result
+        .to_string()//converts to string
+        .replace("_", " ");// replaces underscores with spaces 
+    decoded_name
+}
 fn main() {
-    // imports the modules to change some names with non standard characters
-    use percent_encoding::percent_decode_str;
 
     // import the functions from the modules in graph_read.rs and bfs.rs
     use bfs::get_average_distance;
@@ -32,11 +39,7 @@ fn main() {
 
         // formats the printing of the article name and the average distance to be more readable
         let page_name = reverse.get(&x).unwrap();
-        let decoded_name = percent_decode_str(page_name)
-            .decode_utf8()//adds special characters
-            .unwrap()//unwraps the result
-            .to_string()//converts to string
-            .replace("_", " ");// replaces underscores with spaces 
+        let decoded_name = decode_name(page_name);
         let dashes = "-".repeat(max_length - decoded_name.chars().count());
         println!("{}{}{}", decoded_name, dashes, ave_dist)
     }
@@ -67,7 +70,7 @@ mod tests {
         edges.push((2, 3));
         
         let graph = Graph::create_directed(4, &edges);
-        assert_eq!(get_average_distance(0, &graph), 2.0);
+        assert_eq!(get_average_distance(0, &graph), 2.0);// should be 2
     }
 
     #[test]
@@ -97,9 +100,4 @@ mod tests {
         assert_eq!(reverse.get(&1).unwrap(), "b");
         assert_eq!(reverse.get(&2).unwrap(), "c");
     }
-
-
-
-    
- 
 }
