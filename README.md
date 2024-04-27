@@ -11,7 +11,7 @@ The game Wikispeedia is an online game that involves navigating through the Wiki
 In this project I am aiming to calculate the average number of clicks to navigate from one random page to another. In exploring the [Wikispeedia website](https://dlab.epfl.ch/wikispeedia/play/), the average number of clicks is about 4-10, with the record for some scenarios being even lower than that. I want to see if the records held for certain runs are only that high because people are missing hidden routes.  
 
 ## Code Description
-The project is broken down into three files: `graph_read.rs`, `bfs.rs`, and `main.rs`. The first file `graph_read.rs`, is primarily used to create the graph from the tsv files and convert them to a usable format. The `bfs.rs` file contains the helper function in order to calculate the average distance from any given node to all other nodes. Finally, the `main.rs` file imports the functions and types from the other two files and runs the actual calculations. It also formats the output so all of the results are inline with the actual article name. 
+I used a Cargo-based Rust project found in the wikispeedia folder of this repository. The project is broken down into three files: `graph_read.rs`, `bfs.rs`, and `main.rs`. The first file `graph_read.rs`, is primarily used to create the graph from the tsv files and convert them to a usable format. The `bfs.rs` file contains the helper function in order to calculate the average distance from any given node to all other nodes. Finally, the `main.rs` file imports the functions and types from the other two files and runs the actual calculations. It also formats the output so all of the results are inline with the actual article name. 
 
 Below is a breakdown of the code in each file:
 

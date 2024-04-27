@@ -56,14 +56,14 @@ fn main() {
     // calculates the maximum average distance
     let max_ave = graph_ave.iter().fold(0.0, |a: f64, &b| a.max(b));
     println!(
-        "The maximum distance from any given node to any other given node is {}",
+        "The maximum average distance is {}",
         max_ave
     );
 
     // calculates the minimum average distance
     let min_ave = graph_ave.iter().fold(100000.0, |a: f64, &b| a.min(b)); //uses a starting value that is higher than the number of nodes to prevent errors
     println!(
-        "The minimum distance from any given node to any other given node is {}",
+        "The minimum average distance is {}",
         min_ave
     );
 }
