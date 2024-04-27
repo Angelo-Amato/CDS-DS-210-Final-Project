@@ -1,7 +1,8 @@
 ```text
 cargo run
+   Compiling percent-encoding v2.3.1
    Compiling wikispeedia v0.1.0 (/Users/angeloamato/Documents/GitHub/CDS-DS-210-Final-Project/wikispeedia)
-    Finished dev [unoptimized + debuginfo] target(s) in 0.48s
+    Finished dev [unoptimized + debuginfo] target(s) in 1.08s
      Running `target/debug/wikispeedia`
 Article Name----------------------------------------------------------------------------------------Average Distance to Other Articles
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -4610,4 +4611,6 @@ Zoroaster-----------------------------------------------------------------------
 Zuid-Gelders----------------------------------------------------------------------------------------3.4132087768846406
 Zulu------------------------------------------------------------------------------------------------2.8427112752552683
 The average distance from any given node to any other given node is 2.8090150287284805
+The maximum average distance is 4.5103193569411255
+The minimum average distance is 0
 ```
