@@ -86,6 +86,7 @@ This file calls some of the helper functions listed above and calculates the ave
 
 
 ## Output and Observations
+The full output of `main.rs` can be found in the [full_output.md](full_output.md) file. An abridged ver
 
 ## Sources
 1. [Stanford Network Analysis Project (SNAP) Dataset](https://snap.stanford.edu/data/wikispeedia.html)
