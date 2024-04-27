@@ -3,14 +3,13 @@ mod graph_read;
 // changes the names of necessary functions to be more readable
 fn decode_name(percent_name: &str) -> String {
     let decoded_name = percent_encoding::percent_decode_str(percent_name)
-        .decode_utf8()//adds special characters
-        .unwrap()//unwraps the result
-        .to_string()//converts to string
-        .replace("_", " ");// replaces underscores with spaces 
+        .decode_utf8() //adds special characters
+        .unwrap() //unwraps the result
+        .to_string() //converts to string
+        .replace("_", " "); // replaces underscores with spaces
     decoded_name
 }
 fn main() {
-
     // import the functions from the modules in graph_read.rs and bfs.rs
     use bfs::get_average_distance;
     use graph_read::*;
@@ -28,8 +27,11 @@ fn main() {
     let max_length = 100;
     let mut graph_ave = Vec::<f64>::new();
     //prints headers for the output
-    println!("Article Name{}Average Distance to Other Articles", "-".repeat(max_length - "Article Name".chars().count()));
-    println!("{}",":".repeat(max_length + 34));
+    println!(
+        "Article Name{}Average Distance to Other Articles",
+        "-".repeat(max_length - "Article Name".chars().count())
+    );
+    println!("{}", ":".repeat(max_length + 34));
     for x in 0..wiki_graph.n {
         // calculate the average distance from  node x  to all other nodes
         let ave_dist = get_average_distance(x as Vertex, &wiki_graph);
@@ -46,17 +48,24 @@ fn main() {
 
     // calculates the average distance from  all the nodes to all other nodes
     let total_ave = graph_ave.iter().sum::<f64>() / graph_ave.len() as f64;
-    println!("The average distance from any given node to any other given node is {}", total_ave);
+    println!(
+        "The average distance from any given node to any other given node is {}",
+        total_ave
+    );
 
-
-    // calculates the maximum average distance  
+    // calculates the maximum average distance
     let max_ave = graph_ave.iter().fold(0.0, |a: f64, &b| a.max(b));
-    println!("The maximum distance from any given node to any other given node is {}", max_ave);
+    println!(
+        "The maximum distance from any given node to any other given node is {}",
+        max_ave
+    );
 
     // calculates the minimum average distance
     let min_ave = graph_ave.iter().fold(100000.0, |a: f64, &b| a.min(b)); //uses a starting value that is higher than the number of nodes to prevent errors
-    println!("The minimum distance from any given node to any other given node is {}", min_ave);
-
+    println!(
+        "The minimum distance from any given node to any other given node is {}",
+        min_ave
+    );
 }
 
 //tests
@@ -73,13 +82,13 @@ mod tests {
         edges.push((0, 1));
         edges.push((1, 2));
         edges.push((2, 3));
-        
+
         let graph = Graph::create_directed(4, &edges);
-        assert_eq!(get_average_distance(0, &graph), 2.0);// should be 2
+        assert_eq!(get_average_distance(0, &graph), 2.0); // should be 2
     }
 
     #[test]
-    fn test_get_average_distance_complex_graph(){
+    fn test_get_average_distance_complex_graph() {
         let mut edges = Vec::new();
         edges.push((0, 1));
         edges.push((1, 2));
@@ -90,9 +99,9 @@ mod tests {
         edges.push((0, 4));
 
         let graph = Graph::create_directed(5, &edges);
-        assert_eq!(get_average_distance(0, &graph), 1.75);//should be 7/4
+        assert_eq!(get_average_distance(0, &graph), 1.75); //should be 7/4
     }
-    
+
     //tests the reverse_key function
     #[test]
     fn test_reverse_key() {
