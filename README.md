@@ -104,5 +104,6 @@ One interesting ovbservation is that there are several articles with an average 
 2. [Wikispeedia](https://dlab.epfl.ch/wikispeedia/play/)
 3. [Wikipedia:Dead-end pages](https://en.wikipedia.org/wiki/Wikipedia:Deadend_pages#:~:text=A%20dead%2Dend%20page%20is,easy%20cross%2Dreferencing%20of%20information.)
 4. [Current Wikipedia article for Duchenne muscular dystrophy](https://en.wikipedia.org/wiki/Duchenne_muscular_dystrophy)
-5. [ChatGPT Conversation 1](https://chat.openai.com/share/960d84a6-8bd0-435a-9f49-1ed69f4ae4a4)
-6. [ChatGPT Conversation 2](https://chat.openai.com/share/d093b3ba-81fd-48b3-a603-1fa45248bf54)
+5. [Vistualizations of Graphs Sandboxes](https://csacademy.com/app/graph_editor/)
+6. [ChatGPT Conversation 1](https://chat.openai.com/share/960d84a6-8bd0-435a-9f49-1ed69f4ae4a4)
+7. [ChatGPT Conversation 2](https://chat.openai.com/share/d093b3ba-81fd-48b3-a603-1fa45248bf54)
