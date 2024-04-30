@@ -25,7 +25,7 @@ This file houses helper functions that read the tsv files containing the data. T
  
 * `create_key`
   * a helper function to create key to turn the names of articles into numeric values for the graph
-  * takes a file path as input (assumes it is a tsv file
+  * takes a file path as input (assumes it is a tsv file)
   * returns a HashMap, with the article names as keys and the corresponding numbers as values
   * values will range from 0 to n-1, with n being the number of articles
 
